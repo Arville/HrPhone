@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kzjy.sxup_phone_wkl_demo.dao.HrPhone_w_Dao">
+
+    <insert id="insertInfo" parameterType="java.util.Map">
+        insert into T_SXUP_PHONE(
+        <trim prefix=""  suffixOverrides=",">
+            NUM_ID, SIGN_LEVEL,
+            <if test="APPRAISE_DATE != null ">APPRAISE_DATE, </if>
+            <if test="APPRAISE_TYPE != null ">APPRAISE_TYPE, </if>
+            <if test="DATA_FROM != null ">DATA_FROM, </if>
+            <if test="DISTRIBUTION_TYPE != null ">DISTRIBUTION_TYPE, </if>
+            <if test="IS_EFFECTIVE != null ">IS_EFFECTIVE, </if>
+            <if test="LAST_DATE != null ">LAST_DATE, </if>
+            <if test="MOB != null ">MOB, </if>
+            <if test="NAME != null ">NAME, </if>
+            <if test="PHONE != null ">PHONE, </if>
+            <if test="PROJECT != null ">PROJECT, </if>
+            <if test="USER_ID != null ">USER_ID, </if>
+            <if test="PUBLISH_AUTHOR != null ">PUBLISH_AUTHOR, </if>
+            <if test="PUBLISH_DATE != null ">PUBLISH_DATE, </if>
+            <if test="REMARK != null ">REMARK, </if>
+            <if test="SEEK_ID != null ">SEEK_ID, </if>
+            <if test="SEEK_REMARK != null ">SEEK_REMARK, </if>
+            <if test="TG_ACCT != null ">TG_ACCT, </if>
+            <if test="TG_CITY != null ">TG_CITY, </if>
+            <if test="WEBSITE != null ">WEBSITE, </if>
+            <if test="FENPEI_DATE != null ">FENPEI_DATE, </if>
+            <if test="IS_VOLUNTARILY != null ">IS_VOLUNTARILY, </if>
+            <if test="DATA_TYPE != null ">DATA_TYPE, </if>
+            <if test="OUT_TIME != null ">OUT_TIME, </if>
+            <if test="PRO_JF_TYPE != null ">PRO_JF_TYPE, </if>
+        </trim>
+        <![CDATA[ ) values( ]]>
+        <trim prefix=""  suffixOverrides=",">
+            SEQ_T_SXUP_PHONE.nextval, '5',
+            <if test="APPRAISE_DATE != null ">to_date(#{APPRAISE_DATE},'yyyy-MM-dd HH24:mi'),</if>
+            <if test="APPRAISE_TYPE != null ">#{APPRAISE_TYPE},</if>
+            <if test="DATA_FROM != null ">#{DATA_FROM},</if>
+            <if test="DISTRIBUTION_TYPE != null ">#{DISTRIBUTION_TYPE},</if>
+            <if test="IS_EFFECTIVE != null ">#{IS_EFFECTIVE},</if>
+            <if test="LAST_DATE != null ">to_date(#{LAST_DATE},'yyyy-MM-dd HH24:mi'),</if>
+            <if test="MOB != null ">#{MOB},</if>
+            <if test="NAME != null ">#{NAME},</if>
+            <if test="PHONE != null ">#{PHONE},</if>
+            <if test="PROJECT != null ">#{PROJECT},</if>
+            <if test="USER_ID != null ">#{USER_ID},</if>
+            <if test="PUBLISH_AUTHOR != null ">#{PUBLISH_AUTHOR},</if>
+            <if test="PUBLISH_DATE != null ">to_date(#{PUBLISH_DATE},'yyyy-MM-dd HH24:mi'),</if>
+            <if test="REMARK != null ">#{REMARK},</if>
+            <if test="SEEK_ID != null ">#{SEEK_ID},</if>
+            <if test="SEEK_REMARK != null ">#{SEEK_REMARK},</if>
+            <if test="TG_ACCT != null ">#{TG_ACCT},</if>
+            <if test="TG_CITY != null ">#{TG_CITY},</if>
+            <if test="WEBSITE != null ">#{WEBSITE},</if>
+            <if test="FENPEI_DATE != null ">to_date(#{FENPEI_DATE},'yyyy-MM-dd HH24:mi'),</if>
+            <if test="IS_VOLUNTARILY != null ">#{IS_VOLUNTARILY},</if>
+            <if test="DATA_TYPE != null ">#{DATA_TYPE},</if>
+            <if test="OUT_TIME != null ">to_date(#{OUT_TIME},'yyyy-MM-dd HH24:mi'),</if>
+            <if test="PRO_JF_TYPE != null ">#{PRO_JF_TYPE},</if>
+        </trim>
+        <![CDATA[ ) ]]>
+    </insert>
+
+    <select id="queryPhone" resultType="java.lang.String">
+        select PHONE from T_SXUP_PHONE
+        <where>
+            <if test="phone !=null">
+                PHONE=#{phone}
+            </if>
+        </where>
+    </select>
+
+</mapper>
