@@ -13,7 +13,7 @@ public class HrPhone_w_ServiceImpl implements HrPhone_w_Service {
     HrPhone_w_Dao hrPhone_w_dao;
 
     @Override
-    public int save(Map<String, Object> map) {
+    public int save_w(Map<String, Object> map) {
         int i = hrPhone_w_dao.insertInfo(map);
         return i;
     }
@@ -23,4 +23,6 @@ public class HrPhone_w_ServiceImpl implements HrPhone_w_Service {
         String phone_new  = hrPhone_w_dao.queryPhone(phone);
         return phone_new;
     }
+
+
 }
